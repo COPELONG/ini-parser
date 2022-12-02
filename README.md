@@ -65,8 +65,7 @@ operator int(){
     return m_value//根据其类型返回，详细看代码
 }
 ```
-
-
+ ![image]([https://github.com/591774192/MerlandTrade/blob/master/%E6%A2%85%E5%85%B0%E5%95%86%E8%B4%B8%E6%88%AA%E5%9B%BE.png](https://github.com/COPELONG/ini-parser/blob/master/image-1.png))
 
 ### 2.创建IniFile类：
 
