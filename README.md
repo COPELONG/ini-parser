@@ -1,5 +1,9 @@
 # ini-parser
+本代码基于B站UP主：天天写乱码（UID：193137215）技术指导。
 # INI文件解析器
+1.所用知识点
+2.功能模块
+3.查缺补漏
 
 ## 所用知识点
 
@@ -12,37 +16,6 @@
 4.构造函数重载
 
 5.面向对象设计
-
-## 零碎知识点
-
-1.将int、double等类型转换为string：使用字节流转化
-
-```c++
-    int value = 1
-    stringstream ss;
-	ss << value;
-	m_value = ss.str();
-```
-
-2.将string转化为int、double等：
-
-```c++
-string m_value;
-atoi(m_value.c_str());//先转化为c类型的字符串才能使用atoi将stirng转化为int类型
-```
-
-3.根据ini文件数据存储方式设计合适数据结构
-
-```c++
-//大map集合嵌套小map集合
-typedef map<string, Value> Section;
-map<string, Section> m_sections;
-//map集合访问元素
-m_sections[key] = Section();
-m_sections[section][key] = value;
-//读取的value是string类型，往Section里存的是Value类型
-//可以理解成自动转化为Value v = value;对应1.2功能。
-```
 
 
 
@@ -101,4 +74,36 @@ set(const string& section, const string& key, const Value& value);
 
 2.9 设计save函数：保存文件。
 
-![image-20221201233840039](C:\Users\51644\AppData\Roaming\Typora\typora-user-images\image-20221201233840039.png)
+![image-20221201233840039](https://github.com/COPELONG/ini-parser/blob/master/image-2.png))
+
+## 查缺补漏
+
+1.将int、double等类型转换为string：使用字节流转化
+
+```c++
+    int value = 1
+    stringstream ss;
+	ss << value;
+	m_value = ss.str();
+```
+
+2.将string转化为int、double等：
+
+```c++
+string m_value;
+atoi(m_value.c_str());//先转化为c类型的字符串才能使用atoi将stirng转化为int类型
+```
+
+3.根据ini文件数据存储方式设计合适数据结构
+
+```c++
+//大map集合嵌套小map集合
+typedef map<string, Value> Section;
+map<string, Section> m_sections;
+//map集合访问元素
+m_sections[key] = Section();
+m_sections[section][key] = value;
+//读取的value是string类型，往Section里存的是Value类型
+//可以理解成自动转化为Value v = value;对应1.2功能。
+```
+
